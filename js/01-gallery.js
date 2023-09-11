@@ -28,9 +28,15 @@ function createMarkup(arr) {
 console.log(markup);
 
 function handleImageClick(event) {
+  if (event.target === targetElement) {
+    return;
+  }
+  const targetElement = event.target.closest(".gallery__image");
+  const imageItem = targetElement.dataset.source;
+  console.log("this is: ", imageItem);
   const instance = basicLightbox.create(`
     <div class="modal">
-      <img src="${data.original}" alt="${description}" />
+      <img src="${imageItem}" alt="${description}" />
       <h3>${description}</h3>
       </div>
     `);
