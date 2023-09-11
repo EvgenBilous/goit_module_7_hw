@@ -1,9 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-import * as basicLightbox from "basiclightbox";
-
-// instance.show();
 const listImages = document.querySelector(".gallery");
 const markup = createMarkup(galleryItems);
 listImages.insertAdjacentHTML("beforeend", markup);
@@ -31,22 +28,12 @@ function createMarkup(arr) {
 console.log(markup);
 
 function handleImageClick(event) {
-  const targetElement = event.target.closest(".gallery__item");
-  if (event.target === event.currentTarget) {
-    return;
-  }
-
-  console.log("Event target");
-  console.log(event.target);
-  console.log("Our Target");
-  console.log(targetElement);
-}
-
-const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(`
     <div class="modal">
-      <img src="${original}" alt="${description}" />
+      <img src="${data.original}" alt="${description}" />
       <h3>${description}</h3>
       </div>
     `);
 
-instance.show();
+  instance.show();
+}
