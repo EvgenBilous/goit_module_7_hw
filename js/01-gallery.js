@@ -1,7 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-//import * basicLightbox } from "../basiclightbox";
+import * as basicLightbox from "basiclightbox";
 
 // instance.show();
 const listImages = document.querySelector(".gallery");
@@ -30,13 +30,12 @@ function createMarkup(arr) {
 }
 console.log(markup);
 
-listImages.addEventListener("click", handlePictureClick);
-
 function handleImageClick(event) {
   const targetElement = event.target.closest(".gallery__item");
   if (event.target === event.currentTarget) {
     return;
   }
+
   console.log("Event target");
   console.log(event.target);
   console.log("Our Target");
