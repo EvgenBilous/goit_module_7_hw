@@ -30,16 +30,18 @@ console.log(markup);
 function handleImageClick(event) {
   const targetElement = event.target.closest(".gallery__image");
   if (event.target === targetElement) {
-    return;
   }
   const imageItem = targetElement.dataset.source;
-  console.log("this is: ", imageItem);
+  console.log("this is original image: ", imageItem);
   const instance = basicLightbox.create(`
     <div class="modal">
-      <img src="${imageItem}" alt="${description}" />
-      <h3>${description}</h3>
+      <img src="${imageItem}"  />
+    
       </div>
     `);
 
   instance.show();
 }
+// код який непрацює
+//<img src="${imageItem}" alt="${description}" />
+// <h3>${description}</h3>
