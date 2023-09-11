@@ -29,14 +29,16 @@ console.log(markup);
 
 function handleImageClick(event) {
   const targetElement = event.target.closest(".gallery__image");
+  event.preventDefault();
   if (event.target === targetElement) {
   }
+  const descriptionItem = targetElement.alt;
   const imageItem = targetElement.dataset.source;
   console.log("this is original image: ", imageItem);
   const instance = basicLightbox.create(`
     <div class="modal">
-      <img src="${imageItem}"  />
-    
+ <img src="${imageItem}" alt="${descriptionItem}" />
+<h3>${descriptionItem}</h3>
       </div>
     `);
 
