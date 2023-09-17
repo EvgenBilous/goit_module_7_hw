@@ -57,14 +57,6 @@ function handleImageClick(event) {
     }
   );
 
-  // if (event.keycode === 27) {
-  //   // If ESC key is pressed
-  //   if (document.querySelector("modal_window").classList.contains("modal")) {
-  //     // LIGHTBOX ON
-  //     document.querySelector("modal_window").classList.remove("modal");
-  //   }
-  // }
-
   modal.show();
 }
 

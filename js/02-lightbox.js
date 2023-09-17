@@ -4,21 +4,30 @@ import { galleryItems } from "./gallery-items.js";
 const listImages = document.querySelector(".gallery");
 const markup = createMarkup(galleryItems);
 listImages.insertAdjacentHTML("beforeend", markup);
-listImages.addEventListener("click", handleImageClick);
 
 function createMarkup(arr) {
   return arr
     .map(({ original, preview, description }) => {
       return `<div>
 <li class="gallery__item">
-   <a class="gallery__link" href="${original}">
-      <img class="gallery__image" src="${preview}" alt="${description}" />
-   </a>
+  <a class="gallery__link" href="${original}">
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
+    />
+  </a>
 </li>
-</div>`;
+</div>
+ `;
     })
     .join("");
 }
 console.log(markup);
 
-//console.log(galleryItems);
+const lightbox = new SimpleLightbox(".gallery a", {
+  /* options */
+  captionDelay: 250,
+  captionData: "alt",
+});
